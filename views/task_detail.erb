@@ -1,19 +1,19 @@
 <div class="card" style="background-color: #333; border-color: #333;">
   <div class="card-block">
-    <h2><strong><%= @word.name %></strong></h2><br>
-    <h3><%= @word.definition %></h3><br>
-    <p><em><%=@word.example%></em></p>
+    <h2><strong><%= @task.name %></strong></h2><br>
+    <h3><%= @task.detail %></h3><br>
+    <p><em><%=@task.notes%></em></p>
   </div>
 </div>
 
 <div class="row">
-  <form class="button" action="/<%=@word.id%>" method="post">
+  <form class="button" action="/<%=@task.id%>" method="post">
     <button type="submit" name="button">Delete</button>
   </form>
   <form class="button" action="/" method="get">
     <button type="submit" name="button">Home</button>
   </form>
-  <form class="button" action="/update/<%=@word.id%>" method="get">
+  <form class="button" action="/update/<%=@task.id%>" method="get">
     <button type="submit" name="button">Edit</button>
   </form>
 </div>

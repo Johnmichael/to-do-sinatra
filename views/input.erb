@@ -1,13 +1,13 @@
-<h2 class="header">Create-a-Word</h2>
+<h2 class="header">To Do list</h2>
 
 <form class="" action="/" method="post">
-  <input type="text" name="name" placeholder="Sinatra"><br>
-  <input type="text" name="definition" placeholder="A Ruby Framework">
-  <button class="button" type="submit" name="button">Add Word</button>
+  <input type="text" name="name" placeholder=""><br>
+  <input type="text" name="detail" placeholder="">
+  <button class="button" type="submit" name="button">Add Objective</button>
 </form>
 
-<% @list.each do |word| %>
+<% @list.each do |task| %>
 <h2>
-  <a href="/<%=word.id %>"><%=word.name %></a>
+  <a href="/<%=task.id %>"><%=task.name %></a>
 </h2>
 <% end %>

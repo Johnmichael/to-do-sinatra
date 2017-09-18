@@ -1,51 +1,51 @@
 require('sinatra')
 require('sinatra/reloader')
 also_reload('lib/**/*.rb')
-require('./lib/word')
+require('./lib/task')
 require('pry')
 
 get('/') do
-  @list = Word.all
+  @list = Task.all
   erb(:input)
 end
 
 post('/') do
   name = params["name"]
-  definition = params["definition"]
+  detail = params["detail"]
 
-  word_hash = {"name" => name, "definition" => definition}
+  task_hash = {"name" => name, "detail" => detail}
 
-  word = Word.new(word_hash)
-  word.save
-  @list = Word.all
+  task = Task.new(task_hash)
+  task.save
+  @list = Task.all
   erb(:input)
 end
 
 get('/:id') do
-  @word = Word.search(params[:id])
-  erb(:word_detail)
+  @task = Task.search(params[:id])
+  erb(:task_detail)
 end
 
 post('/:id') do
-  @word = Word.search(params[:id])
-  Word.remove(@word.id)
+  @task = Task.search(params[:id])
+  Task.remove(@task.id)
   redirect '/'
-  erb(:word_detail)
+  erb(:task_detail)
 end
 
 
 get('/update/:id') do
-  @word = Word.search(params[:id])
+  @task = Task.search(params[:id])
   erb(:update)
 end
 
 post('/update/:id') do
-  @word = Word.search(params[:id])
+  @task = Task.search(params[:id])
 
   name = params["name"]
-  definition = params["definition"]
-  example = params["example"]
+  detail = params["detail"]
+  notes = params["notes"]
 
-  Word.update(@word.id, name, definition, example)
+  Task.update(@task.id, name, detail, notes)
   erb(:update)
 end

@@ -5,26 +5,26 @@ Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 
 describe('Create, Update, and Delete', {:type => :feature}) do
-  it('Processes user input and creates the word or phrase') do
+  it('Processes user input and creates tasks name and details') do
     visit('/')
-    fill_in('name', :with => 'Code Review')
-    fill_in('definition', :with => 'The thing with the objectives')
-    click_button('Add Word')
-    expect(page).to have_content('Code Review')
+    fill_in('name', :with => 'Study Databases')
+    fill_in('detail', :with => 'Go over homework and stuff')
+    click_button('Add Objective')
+    expect(page).to have_content('Study Databases')
   end
 
-  it('Updates the definition') do
+  it('Updates the detail') do
     visit('/1')
     click_button('Edit')
-    fill_in('definition', :with => 'An exercise covering this weeks (and prior) lessons and concepts.')
+    fill_in('detail', :with => 'Chapters 5-6')
     click_button('Confirm')
     visit('/1')
-    expect(page).to have_content('An exercise covering this weeks (and prior) lessons and concepts.')
+    expect(page).to have_content('Chapters 5-6')
   end
 
   it('Deletes the user input and returns home') do
     visit('/1')
     click_button('Delete')
-    expect(page).to have_no_content('Code Review')
+    expect(page).to have_no_content('Study Databases')
   end
 end

@@ -1,18 +1,18 @@
 <div class="card" style="background-color: #333; border-color: #333;">
   <div class="card-block">
-    <h2><strong><%= @word.name %></strong></h2><br>
-    <h3><%= @word.definition %></h3><br>
-    <p><em><%=@word.example%></em></p>
+    <h2><strong><%= @task.name %></strong></h2><br>
+    <h3><%= @task.detail %></h3><br>
+    <p><em><%=@task.notes%></em></p>
   </div>
 </div>
 
 
 <div class="row">
-  <form class="" action="/update/<%= @word.id %>" method="post">
+  <form class="" action="/update/<%= @task.id %>" method="post">
     <label>Definition</label>
-    <input type="text" name="definition" value="<%= @word.definition %>">
+    <input type="text" name="detail" value="<%= @task.detail %>">
     <label>Example</label>
-    <input type="text" name="example" value="<%= @word.example %>">
+    <input type="text" name="notes" value="<%= @task.notes %>">
     <button class="button" type="submit" name="button">Confirm</button>
   </form>
 
