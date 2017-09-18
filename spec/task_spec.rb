@@ -1,6 +1,4 @@
-require('task')
-require('rspec')
-require('pry')
+require("spec_helper")
 
 
 describe('creates a task object') do
