@@ -4,8 +4,6 @@ also_reload('lib/**/*.rb')
 require('./lib/task')
 require('pry')
 
-DB = PG.connect({:dbname => "to_do"})
-
 get('/') do
   @list = Task.all
   erb(:input)
